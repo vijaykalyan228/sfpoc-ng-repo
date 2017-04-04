@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'app works! Hurray!';
 }
+
+
+//ng build --prod --base-href /sfpoc-ng/ ngh
