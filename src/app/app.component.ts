@@ -16,18 +16,7 @@ export class AppComponent {
   accountName: string;
   contacts: Contact[];
   result:any;
-  constructor(public auth: Auth) {
-    // var appId = "3MVG9szVa2RxsqBbTvNBM4YS1Pw_MLD._1AFJyJFif2PpBO.sXwzzWPRx3RPtL8On69KrgvECxlSoKcUe9c.L";
-    // var proxyURL = "https://vijaykalyan228.github.io/sfpoc-ng/redirect";
-    // var oauthCallbackURL = "https://vijaykalyan228.github.io/sfpoc-ng/oauth";
-    //
-    // let oauth = OAuth.createInstance(appId, "", oauthCallbackURL);
-    // oauth.login().then(result => {
-    //   this.result = result;
-    //   console.log(result); // Prints access token, instance URL, and refresh token (if any)
-    //   Service.createInstance(result);
-    // });
-  }
+  constructor(public auth: Auth) { }
 }
 
 export interface Contact {
