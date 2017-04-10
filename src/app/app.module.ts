@@ -5,23 +5,27 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SpacePlusPipe } from './spaceplus.pipe';
-import {routing} from './app.routing';
+import {routing, appRoutingProviders } from './app.routing';
 import { RedirectComponent } from './redirect/redirect.component';
 import { AddProductsComponent } from './add-products/add-products.component';
+import { CallbackComponent } from './sf-js/sf-js.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RedirectComponent,
     AddProductsComponent,
-    SpacePlusPipe
+    SpacePlusPipe,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule, routing
   ],
-  providers: [],
+  providers: [
+    appRoutingProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

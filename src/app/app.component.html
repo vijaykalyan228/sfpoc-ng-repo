@@ -1,4 +1,39 @@
-<h1>
-  {{title}}
-</h1>
-<router-outlet></router-outlet>
+<div class="navbar-header">
+  <a class="navbar-brand" href="#">Auth0 - Angular 2</a>
+  <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+  <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header navbar-center">
+      <a class="navbar-brand center">
+        Lorem ipsum dolor sit amet...
+        <!-- {{redirect.accountName | async | spacePlus}} -->
+      </a>
+    </div>
+
+    <ul *ngIf="auth.authenticated()" class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a id="quoteHead" class="dropdown-toggle" style="background-color: green" data-toggle="dropdown">Quote</a>
+        <ul id="cartItems" class="dropdown-menu">
+          <li>
+            <table id="tblCartItems"></table>
+          </li>
+        </ul>
+      </li>
+      <li><a>&times;</a></li>
+    </ul>
+    <a class="dropdown-toggle navbar-right" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</a>
+    <button class="dropdown-toggle navbar-right" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <h1>
+    {{title}}
+  </h1>
+
+  <router-outlet></router-outlet>
+</div>
