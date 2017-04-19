@@ -1,5 +1,48 @@
-<p>
-  add-products works!
-</p>
+<div>
+    <div id="DATA">
+        <h6>DATA</h6>
+    </div>
+    <div id="HOSTING">
+        <h6>HOSTING</h6>
+    </div>
+    <div id="VOICE">
+        <h6>VOICE</h6>
+    </div>
+</div>
 
-<pre>{{products}}</pre>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+  products = JSON.parse({{products}});
+  console.log(products)
+  for (var i = 0; i < products.totalSize; i++) {
+      var div = "<div class='col s3'><div class='card black darken-1'>"
+              + "<div class='card-content white-text'>";
+      var span = "<span class='card-title'>";
+      var title = products.records[i].Name;
+      var cSpan = "</span></div>";
+      var divActions = "<div class='card-action text-center' "+
+      "style='border-top-color: #57595b'><a id='addProduct' class='green-text'>Add to Quote";
+      var close = "</a></div></div>";
+      var cardContent = div + span + title + cSpan + divActions + close;
+
+      var family = products.records[i].Family;
+//                $("#cards").append(tableContent);
+      switch (family) {
+          case "DATA":
+          {
+              $("#DATA").append(cardContent);
+              break;
+          }
+          case "HOSTING":
+          {
+              $("#HOSTING").append(cardContent);
+              break;
+          }
+          case "VOICE":
+          {
+              $("#VOICE").append(cardContent);
+              break;
+          }
+      }
+  }
+</script>

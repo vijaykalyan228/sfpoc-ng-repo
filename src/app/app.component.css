@@ -1,0 +1,32 @@
+.example-card {
+  width: 200px;
+  background-color: black;
+  color: white;
+}
+
+.example-card-actions{
+  border-top-color: #57595b !important;
+  border-top: 1px;
+}
+
+.example-card-actions-color{
+  color: green;
+}
+
+.card{
+    border-radius: 6px !important;
+}
+
+.card-content{
+  height: 150px;
+}
+
+.product-table{
+  width: 100%;
+  height: 100%;
+}
+
+.product-table-last{
+  width: 50%;
+  height: 100%;
+}

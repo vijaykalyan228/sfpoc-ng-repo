@@ -8,7 +8,9 @@ import { SpacePlusPipe } from './spaceplus.pipe';
 import {routing, appRoutingProviders } from './app.routing';
 import { RedirectComponent } from './redirect/redirect.component';
 import { AddProductsComponent } from './add-products/add-products.component';
-import { CallbackComponent } from './sf-js/sf-js.component';
+import { CallbackComponent } from './callback/callback.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdCardModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,10 @@ import { CallbackComponent } from './sf-js/sf-js.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
-    HttpModule, routing
+    HttpModule, routing,
+    MdCardModule
   ],
   providers: [
     appRoutingProviders
