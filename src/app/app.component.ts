@@ -52,10 +52,11 @@ export class AppComponent {
     // let oauthCallbackURL: string = "https://vijaykalyan228.github.io/sfpoc-ng/oauth/";
     let oauthCallbackURL: string = "https://sfdccpq.herokuapp.com/oauth.jsp";
     let oauth = OAuth.createInstance(appId, "", oauthCallbackURL);
-    oauth.login().then(result => {
+    // oauth.login().then(result => {
       // console.log(result); // Prints access token, instance URL, and refresh token (if any)
       // this.router.navigate(['products']);
-    });
+    // });
+    this.getProducts();
   }
 
   fetchProducts(arg: string){
