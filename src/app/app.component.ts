@@ -20,6 +20,7 @@ export class AppComponent {
   products2: any[];
   flag: boolean = false;
   displayFlag: boolean = false;
+  cart: any[] = [];
 
   @ViewChild(RedirectComponent) redirectComponent: RedirectComponent;
 
@@ -66,6 +67,14 @@ export class AppComponent {
 
   getFlag(){
     return this.flag;
+  }
+
+  addToCart(productName: string){
+    // alert(productName);
+    if(!this.cart.includes(productName)){
+      this.cart.push(productName);
+    }
+    // console.log(this.cart);
   }
 }
 //ng build --prod --base-href /sfpoc-ng/ ngh

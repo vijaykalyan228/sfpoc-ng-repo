@@ -19,7 +19,21 @@
         <a id="quoteHead" class="dropdown-toggle" style="background-color: green" data-toggle="dropdown">Quote</a>
         <ul id="cartItems" class="dropdown-menu">
           <li>
-            <table id="tblCartItems"></table>
+            <table id="tblCartItems" class='tblCart'>
+              <a *ngFor='let item of cart'>
+                <tr>
+                  <td>
+                    <label>{{item}}</label>
+                  </td>
+                  <td>
+                    <button class='btn btn-default btn-xs transparent'>Configure</button>
+                  </td>
+                  <td>
+                    <a href='#' class='deco-none'><span class='glyphicon glyphicon-trash'></span></a>
+                  </td>
+                </tr>
+              </a>
+            </table>
           </li>
         </ul>
       </li>
@@ -57,7 +71,7 @@
                       <md-card-title>{{product.Name}}</md-card-title>
                     </md-card-content>
                     <md-card-actions class='text-center example-card-actions'>
-                      <a class='example-card-actions-color'>Add Product</a>
+                      <a class='example-card-actions-color' (click)='addToCart(product.Name)'>Add Product</a>
                     </md-card-actions>
                   </md-card>
                 </div>
@@ -76,7 +90,7 @@
                       <md-card-title>{{product.Name}}</md-card-title>
                     </md-card-content>
                     <md-card-actions class='text-center example-card-actions'>
-                      <a class='example-card-actions-color'>Add Product</a>
+                      <a class='example-card-actions-color' (click)='addToCart(product.Name)'>Add Product</a>
                     </md-card-actions>
                   </md-card>
                 </div>
@@ -95,7 +109,7 @@
                       <md-card-title>{{product.Name}}</md-card-title>
                     </md-card-content>
                     <md-card-actions class='text-center example-card-actions'>
-                      <a class='example-card-actions-color'>Add Product</a>
+                      <a class='example-card-actions-color' (click)='addToCart(product.Name)'>Add Product</a>
                     </md-card-actions>
                   </md-card>
                 </div>
