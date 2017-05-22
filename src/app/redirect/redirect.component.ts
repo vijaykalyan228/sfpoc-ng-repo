@@ -22,5 +22,4 @@ export class RedirectComponent implements OnInit {
     this.accountName = this.route.queryParams.map(params => params['accountName'] || 'None');
     this.accountId = this.route.queryParams.map(params => params['accountId'] || 'None');
   }
-
 }
