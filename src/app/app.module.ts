@@ -11,6 +11,8 @@ import { AddProductsComponent } from './add-products/add-products.component';
 import { CallbackComponent } from './callback/callback.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdCardModule} from '@angular/material';
+import { LocationsComponent } from './locations/locations.component';
+import {SharedService} from './shared-service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import {MdCardModule} from '@angular/material';
     RedirectComponent,
     AddProductsComponent,
     SpacePlusPipe,
-    CallbackComponent
+    CallbackComponent,
+    LocationsComponent
   ],
   imports: [
     BrowserModule,

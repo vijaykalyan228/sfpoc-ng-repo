@@ -1,16 +1,16 @@
-import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild } from '@angular/core';
-import { Auth } from './auth.service';
+import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, NgZone } from '@angular/core';
 import {AddProductsComponent} from './add-products/add-products.component';
 import {RedirectComponent} from './redirect/redirect.component';
 import { Observable } from 'rxjs/Observable';
 import OAuth from "forcejs/oauth";
 import {Router, RouterModule} from "@angular/router";
 import { Http } from '@angular/http';
+import {SharedService} from './shared-service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: [Auth],
+  providers: [SharedService],
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
@@ -27,7 +27,20 @@ export class AppComponent {
   @Input() addProducts: AddProductsComponent;
   @Output() onLoad = new EventEmitter<boolean>();
 
-  constructor(private http: Http) {}
+  constructor(private http: Http, private _sharedService: SharedService, private zone:NgZone) {
+    this.invokeSharedService();
+  }
+
+  invokeSharedService(){
+    this.zone.run(() =>{
+      this._sharedService.changeEmitted$.subscribe(
+        text => {
+          console.log(text);
+          this.flag = true;
+          console.log(this.flag);
+        });
+    });
+  }
 
   getProducts() {
     this.http.get("https://sfdccpq.herokuapp.com/ProductsServelet")
@@ -35,46 +48,38 @@ export class AppComponent {
       .subscribe(
       (response) => {
         //  alert(JSON.stringify(response));
-         this.products = JSON.stringify(response.records);
-         this.products2 = response.records;
-         this.flag = true;
-        }, //For Success Response
+        this.products = JSON.stringify(response.records);
+        this.products2 = response.records;
+        this.flag = false;
+      }, //For Success Response
       err => { console.error(err) } //For Error Response
       );
   }
 
-  ngOnInit(){
-    console.log("this executes first");
+  ngOnInit() {
+    // console.log("this executes first");
     // this.accountName = this.redirectComponent.accountName;
   }
 
-  ngAfterViewInit(){
-    let appId: string = "3MVG9szVa2RxsqBbTvNBM4YS1Pw_MLD._1AFJyJFif2PpBO.sXwzzWPRx3RPtL8On69KrgvECxlSoKcUe9c.L";
-    // let oauthCallbackURL: string = "https://vijaykalyan228.github.io/sfpoc-ng/oauth/";
-    let oauthCallbackURL: string = "https://sfdccpq.herokuapp.com/oauth.jsp";
-    let oauth = OAuth.createInstance(appId, "", oauthCallbackURL);
-    // oauth.login().then(result => {
-      // console.log(result); // Prints access token, instance URL, and refresh token (if any)
-      // this.router.navigate(['products']);
-    // });
+  ngAfterViewInit() {
     this.getProducts();
   }
 
-  fetchProducts(arg: string){
+  fetchProducts(arg: string) {
     console.log("this executes third, with " + arg);
     this.onLoad.emit();
   }
 
-  getFlag(){
+  getFlag() {
     return this.flag;
   }
 
-  addToCart(productName: string){
+  addToCart(productName: string) {
     // alert(productName);
-    if(!this.cart.includes(productName)){
+    if (!this.cart.includes(productName)) {
       this.cart.push(productName);
     }
-    // console.log(this.cart);
+    console.log(this.cart);
   }
 }
 //ng build --prod --base-href /sfpoc-ng/ ngh

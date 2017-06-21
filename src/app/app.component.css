@@ -34,3 +34,13 @@
 .tblCart{
   width: 125%;
 }
+.navbar{
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  z-index: 10;
+}
+.main{
+  margin-top: 100px;
+}

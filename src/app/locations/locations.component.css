@@ -1,0 +1,33 @@
+.example-card {
+  width: 300px;
+  background-color: white;
+  margin: 0 auto;
+}
+.example-card-actions{
+  background-color: green;
+}
+.example-card-actions-color{
+  color: white;
+}
+.card{
+  border-radius: 6px !important;
+}
+.card-content{
+  height: 300px;
+}
+.btnFooter{
+  width: 49%;
+}
+.configPane{}
+.btnDivFooter{
+  position: fixed; /* Set the navbar to fixed position */
+  bottom: 0;
+  overflow: hidden;
+  z-index: 10;
+  width: 60%;
+  margin-bottom: 1px;
+  background-color: white;
+}
+.btnAddLocations{
+  width: 100%;
+}
